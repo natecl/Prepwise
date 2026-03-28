@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import { supabase } from "./supabase";
+import { getSupabase } from "./supabase";
 
 async function seed() {
   console.log("Seeding database...");

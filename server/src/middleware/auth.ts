@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { supabase } from "../db/supabase";
+import { getSupabase } from "../db/supabase";
 
 export async function authenticate(
   req: Request,
@@ -15,7 +15,7 @@ export async function authenticate(
   const {
     data: { user },
     error,
-  } = await supabase.auth.getUser(token);
+  } = await getSupabase().auth.getUser(token);
 
   if (error || !user) {
     return res.status(401).json({ error: "Invalid token" });
